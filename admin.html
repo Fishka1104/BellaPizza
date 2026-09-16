@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адмін-панель | BellaPizza</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+    <style>
+      .stat-card {
+        transition: transform 0.2s;
+        border: none;
+        border-radius: 15px;
+      }
+      .stat-card:hover {
+        transform: translateY(-5px);
+      }
+      .stat-icon {
+        font-size: 3rem;
+        opacity: 0.5;
+      }
+    </style>
+</head>
+<body>
+
+    <header class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">BellaPizza | Панель адміністратора</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Перейти на сайт</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-outline-warning btn-sm" href="#" id="admin-logout-btn">
+                            <i class="bi bi-box-arrow-right me-1"></i> Вийти
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-panel">
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                    <div class="position-sticky pt-3">
+                        <ul class="nav flex-column nav-pills">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="tab" href="#dashboard-management">
+                                    <i class="bi bi-speedometer2 me-2"></i>Дашборд
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#order-management">
+                                    <i class="bi bi-cart-check me-2"></i>Замовлення
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#menu-management">
+                                    <i class="bi bi-journal-album me-2"></i>Меню
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#news-management">
+                                    <i class="bi bi-newspaper me-2"></i>Акції
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#reviews-management">
+                                    <i class="bi bi-chat-left-dots me-2"></i>Відгуки
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#users-management">
+                                    <i class="bi bi-people me-2"></i>Користувачі
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <div class="tab-content">
+
+                        <!-- Вкладка 0: Дашборд -->
+                        <div class="tab-pane fade show active" id="dashboard-management">
+                            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                                <h1 class="h2">Дашборд</h1>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-3 mb-4">
+                                <div class="card stat-card bg-primary text-white h-100 shadow">
+                                  <div class="card-body d-flex justify-content-between align-items-center">
+                                    <div>
+                                      <h6 class="card-title text-uppercase text-white-50">Дохід</h5>
+                                      <h2 class="mb-0">₴<span id="stat-income">0</span></h2>
+                                    </div>
+                                    <i class="bi bi-currency-dollar stat-icon text-white"></i>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-3 mb-4">
+                                <div class="card stat-card bg-success text-white h-100 shadow">
+                                  <div class="card-body d-flex justify-content-between align-items-center">
+                                    <div>
+                                      <h6 class="card-title text-uppercase text-white-50">Активні Замовлення</h5>
+                                      <h2 class="mb-0" id="stat-orders">0</h2>
+                                    </div>
+                                    <i class="bi bi-cart text-white stat-icon"></i>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-3 mb-4">
+                                <div class="card stat-card bg-warning text-dark h-100 shadow">
+                                  <div class="card-body d-flex justify-content-between align-items-center">
+                                    <div>
+                                      <h6 class="card-title text-uppercase text-dark-50">Клієнти</h5>
+                                      <h2 class="mb-0" id="stat-users">0</h2>
+                                    </div>
+                                    <i class="bi bi-people text-dark stat-icon"></i>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-3 mb-4">
+                                <div class="card stat-card bg-danger text-white h-100 shadow">
+                                  <div class="card-body d-flex justify-content-between align-items-center">
+                                    <div>
+                                      <h6 class="card-title text-uppercase text-white-50">Позиції в Меню</h5>
+                                      <h2 class="mb-0" id="stat-menu">0</h2>
+                                    </div>
+                                    <i class="bi bi-journal-album text-white stat-icon"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+
+                        <!-- Вкладка 1: Керування замовленнями -->
+                        <div class="tab-pane fade" id="order-management">
+                            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                                <h1 class="h2">Активні замовлення</h1>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-dark table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>ID клієнта</th>
+                                            <th>Дата</th>
+                                            <th>Сума</th>
+                                            <th>Статус</th>
+                                            <th>Оплата</th>
+                                            <th>Адреса</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="orders-table-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Вкладка 2: Керування меню -->
+                        <div class="tab-pane fade" id="menu-management">
+                            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                                <h1 class="h2">Керування меню</h1>
+                                <button class="btn custom-btn" id="add-menu-btn">
+                                    <i class="bi bi-plus-circle me-2"></i>Додати нову страву
+                                </button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-dark table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>Назва</th>
+                                            <th>Опис</th>
+                                            <th>Категорія</th>
+                                            <th>Ціна</th>
+                                            <th>Зображення</th>
+                                            <th>Наявність</th>
+                                            <th>Дії</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="menu-table-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Вкладка 3: Акції та новини -->
+                        <div class="tab-pane fade" id="news-management">
+                            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                                <h1 class="h2">Акції та новини</h1>
+                                <button class="btn custom-btn" id="add-promo-btn">
+                                    <i class="bi bi-plus-circle me-2"></i>Додати акцію
+                                </button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-dark table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>Заголовок</th>
+                                            <th>Опис</th>
+                                            <th>Період дії</th>
+                                            <th>Активна</th>
+                                            <th>Дії</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="promotions-table-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Вкладка 4: Відгуки -->
+                        <div class="tab-pane fade" id="reviews-management">
+                            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                                <h1 class="h2">Модерація відгуків</h1>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-dark table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Клієнт</th>
+                                            <th>Страва</th>
+                                            <th>Оцінка</th>
+                                            <th>Коментар</th>
+                                            <th>Дата</th>
+                                            <th>Дії</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="reviews-table-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Вкладка 5: Користувачі -->
+                        <div class="tab-pane fade" id="users-management">
+                            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                                <h1 class="h2">Користувачі</h1>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-dark table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Ім'я</th>
+                                            <th>Email</th>
+                                            <th>Телефон</th>
+                                            <th>Ролі</th>
+                                            <th>Дії</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="users-table-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </main>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal для додавання / редагування страви -->
+    <div class="modal fade" id="menuModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="menuModalTitle">Нова страва</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-2">
+                        <label class="form-label">Назва</label>
+                        <input id="menu-name" class="form-control" type="text">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Опис</label>
+                        <textarea id="menu-desc" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Категорія</label>
+                        <select id="menu-category" class="form-select">
+                            <option value="Pizza">Pizza</option>
+                            <option value="Drink">Drink</option>
+                            <option value="Dessert">Dessert</option>
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Ціна</label>
+                        <input id="menu-price" class="form-control" type="number" step="0.01" min="0">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Файл зображення (пріоритет)</label>
+                        <input id="menu-imagefile" class="form-control" type="file" accept="image/*">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Або посилання на зображення</label>
+                        <input id="menu-imageurl" class="form-control" type="text" placeholder="images/margherita.jpg">
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="menu-availability" checked>
+                        <label class="form-check-label" for="menu-availability">Є в наявності</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Скасувати</button>
+                    <button class="btn btn-warning" id="menu-save-btn">Зберегти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal для додавання / редагування акції -->
+    <div class="modal fade" id="promoModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="promoModalTitle">Нова акція</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-2">
+                        <label class="form-label">Заголовок</label>
+                        <input id="promo-title" class="form-control" type="text">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Опис</label>
+                        <textarea id="promo-desc" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Зображення обкладинки</label>
+                        <input id="promo-image-file" class="form-control" type="file" accept="image/*">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Дата початку</label>
+                        <input id="promo-startdate" class="form-control" type="date">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Дата завершення</label>
+                        <input id="promo-enddate" class="form-control" type="date">
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="promo-isactive" checked>
+                        <label class="form-check-label" for="promo-isactive">Акція активна</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Скасувати</button>
+                    <button class="btn btn-warning" id="promo-save-btn">Зберегти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+    <script src="js/admin-orders.js"></script>
+    <script src="js/admin-menu.js"></script>
+    <script src="js/admin-promotions.js"></script>
+    <script src="js/admin-reviews.js"></script>
+    <script src="js/admin-users.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

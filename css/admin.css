@@ -1,0 +1,157 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* --- Хедер та навігація --- */
+.navbar {
+    background-color: rgba(30, 30, 30, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #333;
+    z-index: 1030;
+}
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #ff7a00 !important;
+}
+.nav-link { font-weight: 500; }
+.nav-link:hover, .nav-link.active { color: #ff7a00 !important; }
+
+/* --- Основний контейнер адмін-панелі --- */
+.admin-panel {
+    padding-top: 70px;
+}
+
+/* --- Бічна панель (Сайдбар) --- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 70px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    background-color: #1e1e1e;
+    border-right: 1px solid #333;
+}
+.sidebar .nav-link {
+    font-weight: 600;
+    color: #aaa;
+    padding: 15px 25px;
+    border-radius: 0;
+    border-left: 4px solid transparent;
+}
+.sidebar .nav-link:hover {
+    color: #fff;
+    background-color: #2a2a2a;
+    border-left: 4px solid #555;
+}
+.sidebar .nav-link.active {
+    color: #fff;
+    background-image: linear-gradient(to right, rgba(255, 122, 0, 0.3), transparent);
+    border-left: 4px solid #ff7a00;
+}
+
+/* --- Основний контент --- */
+.col-md-9.ms-sm-auto.col-lg-10 {
+    padding-top: 20px;
+}
+.border-bottom {
+    border-bottom-color: #333 !important;
+}
+
+/* --- Таблиці --- */
+.table-responsive {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+.table > :not(caption) > * > * {
+    background-color: transparent;
+}
+.table-hover > tbody > tr:hover > * {
+    background-color: #2a2a2a;
+}
+
+/* --- Статуси замовлень (кнопки) --- */
+.badge, .dropdown-toggle { padding: 8px 12px; font-size: 0.8rem; font-weight: 600; }
+.status-completed { background-color: #28a745; border-color: #28a745; }
+.status-delivery { background-color: #17a2b8; border-color: #17a2b8; }
+.status-preparing { background-color: #ffc107; color: #121212 !important; border-color: #ffc107;}
+
+/* --- Кнопки --- */
+.custom-btn {
+    background-image: linear-gradient(45deg, #ff4800, #ff7a00);
+    border: none; color: #fff; padding: 10px 25px; border-radius: 8px; font-weight: 600;
+}
+
+
+/* ---  АДАПТИВНІСТЬ --- */
+@media (max-width: 767.98px) {
+    .admin-panel {
+        padding-top: 20px;
+    }
+
+    .sidebar {
+        position: static;
+        height: auto;
+        padding: 0 10px 20px 10px;
+        border-right: none;
+        margin-bottom: 20px;
+        box-shadow: none;
+        border-bottom: 1px solid #333;
+    }
+    .sidebar .nav-link {
+        padding: 10px 15px;
+    }
+
+    .col-md-9.ms-sm-auto.col-lg-10 {
+        padding-top: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem !important;
+    }
+
+    .d-flex.border-bottom {
+        flex-direction: column;
+        align-items: flex-start !important;
+        padding-bottom: 1rem !important;
+    }
+    .d-flex.border-bottom h1 {
+        margin-bottom: 1rem;
+        font-size: 1.75rem;
+    }
+    .d-flex.border-bottom .btn {
+        width: 100%;
+    }
+    
+    .table-responsive {
+        padding: 10px;
+    }
+
+    .table td, .table th {
+        padding: 0.7rem 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* --- Футер --- */
+.site-footer {
+    background-color: #1e1e1e; 
+    padding: 25px 0;
+    margin-top: 50px; 
+    border-top: 1px solid #333; 
+}
+
+.site-footer .text-muted {
+    color: #e0e0e0 !important; 
+}

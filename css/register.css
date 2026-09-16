@@ -1,0 +1,133 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* --- Загальні стилі та темна тема --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212; 
+    color: #e0e0e0; 
+}
+
+/* --- Секція реєстрації --- */
+.register-section {
+    min-height: 100vh; 
+}
+
+
+/* --- Стилізація картки реєстрації --- */
+.register-card {
+    background-color: #1e1e1e;
+    border-radius: 15px;
+    border: 1px solid #333;
+    max-width: 550px;
+    width: 100%;
+    
+    
+    transition: box-shadow 0.3s ease-in-out;
+
+    
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.12);
+}
+
+
+.register-card:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+/* --- Заголовок та підзаголовок --- */
+.register-card h2 {
+    font-weight: 600; 
+}
+
+/* --- Стилізація полів вводу (input, select) --- */
+.form-control,
+.form-select {
+    background-color: #2a2a2a; 
+    color: #ffffff; 
+    border: 1px solid #444; 
+    padding: 12px 15px; 
+    border-radius: 8px; 
+    transition: all 0.3s ease; 
+}
+
+/* Стилізація плейсхолдера */
+.form-control::placeholder {
+    color: #888;
+}
+
+/* Зміна стилю при фокусуванні на полі вводу */
+.form-control:focus,
+.form-select:focus {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-color: #ff4800; 
+    box-shadow: 0 0 0 0.25rem rgba(255, 72, 0, 0.25); 
+}
+
+/* Стилізація випадаючого списку */
+.form-select {
+    appearance: none; 
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23888' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+}
+
+/* --- Стилізація кнопки "Зареєструватись" --- */
+.custom-btn {
+    padding: 12px;
+    font-size: 1.1rem; 
+    font-weight: 600;
+    color: #fff;
+    background-image: linear-gradient(45deg, #ff4800, #ff7a00); 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease-out, box-shadow 0.3s ease; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Анімація "підстрибування" та тінь при наведенні */
+.custom-btn:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 20px rgba(255, 100, 0, 0.4); 
+}
+
+/* --- Стилізація посилання "Увійти" та тексту поруч --- */
+.register-card a {
+    color: #ff7a00; 
+    text-decoration: none; 
+    transition: color 0.3s ease;
+}
+
+.register-card a:hover {
+    color: #ff4800; 
+    text-decoration: underline; 
+}
+
+/* Градієнт для тексту "Вже зареєстровані?" */
+.register-card p.text-muted {
+    font-weight: 500; 
+    background: linear-gradient(90deg, #999, #f5f5f5); 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+/* --- Медіа-запити для адаптивності --- */
+@media (max-width: 576px) {
+    .register-card {
+       
+        margin: 15px;
+        padding: 25px !important; 
+    }
+
+    
+    .row > .col {
+        margin-bottom: 1rem;
+    }
+
+    .row > .col:last-child {
+        margin-bottom: 0; 
+    }
+}

@@ -1,26 +1,29 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <title>About BellaPizza</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
-      rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+      rel="stylesheet"
+    />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
 
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet" />
 
-    <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet">
+    <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet" />
+    <link href="css/logo.css" rel="stylesheet" />
+    <link href="css/delivery.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -39,7 +42,25 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <a class="navbar-brand" href="index.html"> BellaPizza </a>
+          <a class="navbar-brand navbar-brand-custom" href="index.html">
+            <div
+              class="pizza-logo-icon pizza-icon-transform"
+              aria-label="BellaPizza Logo"
+            >
+              <div class="crust-tf"></div>
+              <div class="cheese-tf"></div>
+              <div class="pep-tf pep-tf-1"></div>
+              <div class="pep-tf pep-tf-2"></div>
+              <div class="pep-tf pep-tf-3"></div>
+              <div class="basil-tf"></div>
+            </div>
+            <div class="navbar-brand-text">
+              <span class="navbar-brand-title"
+                >Bella<span class="accent-text">Pizza</span></span
+              >
+              <span class="navbar-brand-subtitle">Cucina Italiana</span>
+            </div>
+          </a>
 
           <div class="d-lg-none">
             <button
@@ -128,7 +149,8 @@
               <img
                 src="images/alex-haney-CAhjZmVk5H4-unsplash.jpg"
                 class="img-fluid rounded shadow"
-                alt="Наша Історія">
+                alt="Наша Історія"
+              />
             </div>
             <div
               class="col-lg-6 col-12 d-flex flex-column justify-content-center"
@@ -261,6 +283,94 @@
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="schedule-section section-padding bg-white border-top">
+        <div class="container">
+          <div class="row text-center mb-5">
+            <div class="col-12">
+              <h2 class="mb-3">Графік роботи та зони доставки</h2>
+              <p class="text-muted">
+                Офіційний регламент обслуговування ресторану та кур'єрської
+                служби BellaPizza
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-10 mx-auto">
+              <div class="table-responsive delivery-table-container">
+                <table class="table delivery-schedule-table">
+                  <thead>
+                    <tr class="delivery-header-primary">
+                      <th>Зона обслуговування</th>
+                      <th>Формат замовлення</th>
+                      <th>Години роботи</th>
+                      <th>Умови та тарифікація</th>
+                    </tr>
+                    <tr class="delivery-header-secondary">
+                      <td>Центр та прилеглі райони (Зона 1)</td>
+                      <td>Експрес-доставка до 45 хв</td>
+                      <td>Щодня: 10:00 — 22:30</td>
+                      <td>Безкоштовно від 350 грн</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        rowspan="2"
+                        class="align-middle fw-bold text-center bg-light"
+                      >
+                        Понеділок — П'ятниця
+                      </td>
+                      <td>
+                        <i class="bi-shop me-2 text-danger"></i>Зал та Самовивіз
+                      </td>
+                      <td>10:00 — 22:00</td>
+                      <td>Знижка 10% на всі замовлення з собою</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i class="bi-bicycle me-2 text-danger"></i>Кур'єрська
+                        доставка
+                      </td>
+                      <td>10:30 — 21:30</td>
+                      <td>Середній час доставки: 35–45 хв</td>
+                    </tr>
+                    <tr>
+                      <td
+                        rowspan="2"
+                        class="align-middle fw-bold text-center bg-light"
+                      >
+                        Субота — Неділя
+                      </td>
+                      <td>
+                        <i class="bi-shop me-2 text-danger"></i>Зал та Самовивіз
+                      </td>
+                      <td>11:00 — 23:00</td>
+                      <td>Працює літня тераса та дитяча зона</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i class="bi-bicycle me-2 text-danger"></i>Кур'єрська
+                        доставка
+                      </td>
+                      <td>11:00 — 22:30</td>
+                      <td>Безкоштовна доставка для замовлень від 400 грн</td>
+                    </tr>
+                    <tr class="table-light">
+                      <td colspan="2" class="fw-bold">
+                        Мінімальне замовлення для віддалених районів
+                      </td>
+                      <td colspan="2" class="fw-bold text-success text-center">
+                        Від 500 грн (Зони 2 та 3)
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

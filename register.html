@@ -1,60 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Реєстрація | BellaPizza</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Ікони Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <!-- Стилі реєстрації -->
-    <link rel="stylesheet" href="css/register.css">
-</head>
-<body>
-
-<section class="register-section d-flex align-items-center justify-content-center">
-    <div class="register-card p-5 shadow-lg">
+    <link rel="stylesheet" href="css/register.css" />
+  </head>
+  <body>
+    <section
+      class="register-section d-flex align-items-center justify-content-center"
+    >
+      <div class="register-card p-5 shadow-lg">
         <h2 class="mb-2 text-white">Створіть акаунт</h2>
-        <p class="text-muted mb-4">Приєднуйтесь до BellaPizza для зручного замовлення</p>
+        <p class="text-muted mb-4">
+          Приєднуйтесь до BellaPizza для зручного замовлення
+        </p>
 
         <form id="register-form">
-            <div class="mb-3">
-                <input type="text" id="reg-name" class="form-control" placeholder="Ваше ім'я" required>
-            </div>
+          <div class="mb-3">
+            <input
+              type="text"
+              id="reg-name"
+              class="form-control"
+              placeholder="Ваше ім'я"
+              required
+            />
+          </div>
 
-            <div class="mb-3">
-                <input type="email" id="reg-email" class="form-control" placeholder="Email" required>
-            </div>
+          <div class="mb-3">
+            <input
+              type="email"
+              id="reg-email"
+              class="form-control"
+              placeholder="Email"
+              required
+            />
+          </div>
 
-            <div class="mb-3">
-                <select class="form-select" id="reg-country">
-                    <option value="">Виберіть країну</option>
-                    <option>Україна</option>
-                    <option>США</option>
-                    <option>Польща</option>
-                    <option>Інші</option>
-                </select>
-            </div>
+          <div class="mb-3">
+            <select class="form-select" id="reg-country">
+              <option value="">Виберіть країну</option>
+              <option>Україна</option>
+              <option>США</option>
+              <option>Польща</option>
+              <option>Інші</option>
+            </select>
+          </div>
 
-            <div class="mb-4">
-                <input type="password" id="reg-password" class="form-control" placeholder="Пароль" required>
-            </div>
+          <div class="mb-4">
+            <input
+              type="password"
+              id="reg-password"
+              class="form-control"
+              placeholder="Пароль"
+              required
+            />
+          </div>
 
-            <button type="submit" class="custom-btn w-100 mb-3">Зареєструватись</button>
+          <button type="submit" class="custom-btn w-100 mb-3">
+            Зареєструватись
+          </button>
 
-            <p class="text-center text-muted mb-0">
-                Вже зареєстровані? <a href="login.html" class="text-primary fw-bold">Увійти</a>
-            </p>
+          <p class="text-center text-muted mb-0">
+            Вже зареєстровані?
+            <a href="login.html" class="text-primary fw-bold">Увійти</a>
+          </p>
         </form>
-    </div>
-</section>
+      </div>
+    </section>
 
-<script src="js/config.js"></script>
-<script src="js/api.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/register.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/register.js"></script>
     <script src="js/nav-auth.js"></script>
-</body>
+  </body>
 </html>

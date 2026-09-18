@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="uk">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Особистий кабінет | BellaPizza</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
-      rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
-    <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet">
+      rel="stylesheet"
+    />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-icons.css" rel="stylesheet" />
+    <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet" />
+    <link href="css/logo.css" rel="stylesheet" />
 
     <style>
       .user-cabinet {
@@ -61,7 +63,25 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <a class="navbar-brand" href="index.html"> BellaPizza </a>
+          <a class="navbar-brand navbar-brand-custom" href="index.html">
+            <div
+              class="pizza-logo-icon pizza-icon-transform"
+              aria-label="BellaPizza Logo"
+            >
+              <div class="crust-tf"></div>
+              <div class="cheese-tf"></div>
+              <div class="pep-tf pep-tf-1"></div>
+              <div class="pep-tf pep-tf-2"></div>
+              <div class="pep-tf pep-tf-3"></div>
+              <div class="basil-tf"></div>
+            </div>
+            <div class="navbar-brand-text">
+              <span class="navbar-brand-title"
+                >Bella<span class="accent-text">Pizza</span></span
+              >
+              <span class="navbar-brand-subtitle">Cucina Italiana</span>
+            </div>
+          </a>
 
           <div class="d-lg-none">
             <button
@@ -180,7 +200,8 @@
                           type="text"
                           class="form-control"
                           id="personal-name"
-                          readonly>
+                          readonly
+                        />
                       </div>
                     </div>
 
@@ -190,7 +211,8 @@
                         type="email"
                         class="form-control"
                         id="personal-email"
-                        readonly>
+                        readonly
+                      />
                     </div>
 
                     <div class="mb-3">
@@ -199,7 +221,8 @@
                         type="tel"
                         class="form-control"
                         id="personal-phone"
-                        readonly>
+                        readonly
+                      />
                     </div>
 
                     <div class="mb-3">
@@ -208,7 +231,8 @@
                         type="text"
                         class="form-control"
                         id="personal-address"
-                        readonly>
+                        readonly
+                      />
                     </div>
 
                     <button
@@ -256,36 +280,36 @@
           <div class="modal-body custom-form">
             <div class="mb-2">
               <label class="form-label">Ім'я</label>
-              <input id="edit-name" class="form-control" type="text">
+              <input id="edit-name" class="form-control" type="text" />
             </div>
 
             <div class="mb-2">
               <label class="form-label">Email</label>
-              <input id="edit-email" class="form-control" type="email">
+              <input id="edit-email" class="form-control" type="email" />
             </div>
 
             <div class="mb-2">
               <label class="form-label">Телефон</label>
-              <input id="edit-phone" class="form-control" type="tel">
+              <input id="edit-phone" class="form-control" type="tel" />
             </div>
 
             <div class="mb-3">
               <label class="form-label">Адреса</label>
-              <input id="edit-address" class="form-control" type="text">
+              <input id="edit-address" class="form-control" type="text" />
             </div>
 
-            <hr>
+            <hr />
 
             <p class="mb-2 text-muted">Зміна пароля (необов'язково):</p>
 
             <div class="mb-2">
               <label class="form-label">Старий пароль</label>
-              <input id="old-password" class="form-control" type="password">
+              <input id="old-password" class="form-control" type="password" />
             </div>
 
             <div class="mb-2">
               <label class="form-label">Новий пароль</label>
-              <input id="new-password" class="form-control" type="password">
+              <input id="new-password" class="form-control" type="password" />
             </div>
 
             <div class="mb-2">
@@ -293,7 +317,8 @@
               <input
                 id="new-password-confirm"
                 class="form-control"
-                type="password">
+                type="password"
+              />
             </div>
           </div>
 
@@ -326,7 +351,7 @@
             <div id="cart-items" class="mb-4">
               <!-- Товари в кошику -->
             </div>
-            <hr>
+            <hr />
             <h4 class="text-end mb-4">
               Всього: <span id="cart-total-price">0.00</span> грн
             </h4>
@@ -337,7 +362,8 @@
                   id="checkout-name"
                   class="form-control"
                   placeholder="Ваше ім'я"
-                  required>
+                  required
+                />
               </div>
               <div class="col-lg-6 col-12">
                 <input
@@ -345,7 +371,8 @@
                   id="checkout-phone"
                   class="form-control"
                   placeholder="123-456-7890"
-                  required>
+                  required
+                />
               </div>
               <div class="col-12">
                 <input
@@ -353,7 +380,8 @@
                   id="checkout-address"
                   class="form-control"
                   placeholder="Адреса доставки"
-                  required>
+                  required
+                />
               </div>
               <div class="col-12">
                 <select

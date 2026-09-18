@@ -1,34 +1,39 @@
 <!doctype html>
 <html lang="uk">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta
       name="keywords"
-      content="BellaPizza, піца, доставка піци, Київ, ресторан, контакти">
+      content="BellaPizza, піца, доставка піци, Київ, ресторан, контакти"
+    />
     <meta
       name="description"
-      content="Сторінка контактів піцерії BellaPizza з інформацією">
+      content="Сторінка контактів піцерії BellaPizza з інформацією"
+    />
     <meta
       name="author"
-      content="Бондаренко Ілля Миколайович & Ільчук Станіслав Сергійович">
+      content="Бондаренко Ілля Миколайович & Ільчук Станіслав Сергійович"
+    />
 
     <title>Бондаренко І.М, Ільчук С.С, ІС-44 — BellaPizza</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
-      rel="stylesheet">
+      rel="stylesheet"
+    />
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
 
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet" />
 
-    <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet">
+    <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet" />
+    <link href="css/logo.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -47,7 +52,25 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <a class="navbar-brand" href="index.html"> BellaPizza </a>
+          <a class="navbar-brand navbar-brand-custom" href="index.html">
+            <div
+              class="pizza-logo-icon pizza-icon-transform"
+              aria-label="BellaPizza Logo"
+            >
+              <div class="crust-tf"></div>
+              <div class="cheese-tf"></div>
+              <div class="pep-tf pep-tf-1"></div>
+              <div class="pep-tf pep-tf-2"></div>
+              <div class="pep-tf pep-tf-3"></div>
+              <div class="basil-tf"></div>
+            </div>
+            <div class="navbar-brand-text">
+              <span class="navbar-brand-title"
+                >Bella<span class="accent-text">Pizza</span></span
+              >
+              <span class="navbar-brand-subtitle">Cucina Italiana</span>
+            </div>
+          </a>
 
           <div class="d-lg-none">
             <button
@@ -135,7 +158,7 @@
                 <i class="bi bi-geo-alt fs-1 text-danger mb-3"></i>
                 <h5 class="card-title">Наша адреса</h5>
                 <p class="card-text text-muted">
-                  Unit.City, м. Київ, Україна<br>Офіс 306, Будівля B09
+                  Unit.City, м. Київ, Україна<br />Офіс 306, Будівля B09
                 </p>
               </div>
             </div>
@@ -148,7 +171,7 @@
                     href="tel:0960000000"
                     class="text-muted text-decoration-none"
                     >+38 (096) 000-00-00</a
-                  ><br><a
+                  ><br /><a
                     href="tel:0990000000"
                     class="text-muted text-decoration-none"
                     >+38 (099) 000-00-00</a
@@ -161,7 +184,7 @@
                 <i class="bi bi-clock fs-1 text-danger mb-3"></i>
                 <h5 class="card-title">Години роботи</h5>
                 <p class="card-text text-muted">
-                  Пн-Пт: 10:00 - 20:00<br>Сб-Нд: 11:00 - 23:00
+                  Пн-Пт: 10:00 - 20:00<br />Сб-Нд: 11:00 - 23:00
                 </p>
               </div>
             </div>
@@ -312,7 +335,8 @@
                       id="contact-name"
                       class="form-control"
                       placeholder="Іван Іванов"
-                      required>
+                      required
+                    />
                   </div>
 
                   <div class="col-lg-6 col-12 mb-3">
@@ -324,7 +348,8 @@
                       name="contact-phone"
                       id="contact-phone"
                       class="form-control"
-                      placeholder="+380...">
+                      placeholder="+380..."
+                    />
                   </div>
 
                   <div class="col-12 mb-3">
@@ -335,7 +360,8 @@
                       id="contact-email"
                       class="form-control"
                       placeholder="ivan@example.com"
-                      required>
+                      required
+                    />
                   </div>
 
                   <div class="col-12 mb-4">
@@ -552,7 +578,8 @@
                     id="name"
                     class="form-control"
                     placeholder="Ваше ім'я"
-                    required>
+                    required
+                  />
                 </div>
 
                 <div class="col-lg-6 col-12">
@@ -565,7 +592,8 @@
                     id="email"
                     class="form-control"
                     placeholder="your@email.com"
-                    required>
+                    required
+                  />
                 </div>
 
                 <div class="col-lg-6 col-12">
@@ -576,7 +604,8 @@
                     id="phone"
                     class="form-control"
                     placeholder="+380 99 123 45 67"
-                    required>
+                    required
+                  />
                 </div>
 
                 <div class="col-lg-6 col-12">
@@ -589,7 +618,8 @@
                     id="address"
                     class="form-control"
                     placeholder="м. Київ, вул. Хрещатик, 12"
-                    required>
+                    required
+                  />
                 </div>
 
                 <div class="col-12 mt-3">
@@ -647,7 +677,6 @@
 
     <script src="js/config.js"></script>
     <script src="js/api.js"></script>
-    
 
     <script src="js/bootstrap.bundle.min.js"></script>
 

@@ -1,26 +1,28 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <title>BellaPizza - Новини Page</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
-      rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+      rel="stylesheet"
+    />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
 
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet" />
 
-    <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet">
+    <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet" />
+    <link href="css/logo.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -39,7 +41,25 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <a class="navbar-brand" href="index.html"> BellaPizza </a>
+          <a class="navbar-brand navbar-brand-custom" href="index.html">
+            <div
+              class="pizza-logo-icon pizza-icon-transform"
+              aria-label="BellaPizza Logo"
+            >
+              <div class="crust-tf"></div>
+              <div class="cheese-tf"></div>
+              <div class="pep-tf pep-tf-1"></div>
+              <div class="pep-tf pep-tf-2"></div>
+              <div class="pep-tf pep-tf-3"></div>
+              <div class="basil-tf"></div>
+            </div>
+            <div class="navbar-brand-text">
+              <span class="navbar-brand-title"
+                >Bella<span class="accent-text">Pizza</span></span
+              >
+              <span class="navbar-brand-subtitle">Cucina Italiana</span>
+            </div>
+          </a>
 
           <div class="d-lg-none">
             <button
@@ -125,7 +145,8 @@
                 src="images/news/default.jpg"
                 class="img-fluid rounded mb-5 w-100"
                 style="max-height: 400px; object-fit: cover; display: none"
-                alt="">
+                alt=""
+              />
 
               <!-- Meta Info -->
               <div class="d-flex mb-4 align-items-center">
@@ -389,7 +410,8 @@
                     id="name"
                     class="form-control"
                     placeholder="Ваше ім'я"
-                    required>
+                    required
+                  />
                 </div>
 
                 <div class="col-lg-6 col-12">
@@ -401,7 +423,8 @@
                     id="email"
                     class="form-control"
                     placeholder="your@email.com"
-                    required>
+                    required
+                  />
                 </div>
 
                 <div class="col-lg-6 col-12">
@@ -411,7 +434,8 @@
                     id="phone"
                     class="form-control"
                     placeholder="+380 99 123 45 67"
-                    required>
+                    required
+                  />
                 </div>
 
                 <div class="col-lg-6 col-12">
@@ -423,7 +447,8 @@
                     id="address"
                     class="form-control"
                     placeholder="м. Київ, вул. Хрещатик, 12"
-                    required>
+                    required
+                  />
                 </div>
 
                 <div class="col-12 mt-3">
@@ -475,7 +500,7 @@
 
     <script src="js/config.js"></script>
     <script src="js/api.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/order-modal.js"></script>

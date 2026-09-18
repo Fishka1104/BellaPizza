@@ -39,7 +39,7 @@
 
 1. Клонуйте репозиторій:
    ```bash
-   https://github.com/stefix66/IC-44_appWEB-BondarenkoIllia-FIOT-2025
+   https://github.com/Fishka1104/BellaPizza
 
 2. Відкрийте проєкт у VS Code.
    

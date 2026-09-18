@@ -1,0 +1,78 @@
+/* Графік доставки та регламент обслуговування */
+
+/* Контейнер таблиці із закругленими кутами та м'якою тінню */
+.delivery-table-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Основна таблиця графіка */
+.delivery-schedule-table {
+  margin-bottom: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.delivery-schedule-table th,
+.delivery-schedule-table td {
+  padding: 14px 18px;
+  vertical-align: middle;
+  border: 1px solid #dee2e6;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Перший рядок шапки: темно-бірюзовий фон із білим текстом */
+.delivery-header-primary {
+  background-color: #448f8f !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.delivery-header-primary th {
+  color: #ffffff !important;
+}
+
+/* Другий рядок шапки: приємний теплий кремово-жовтий фон із темним текстом */
+.delivery-header-secondary {
+  background-color: #f9e784 !important;
+  color: #2d3748 !important;
+  font-weight: 600;
+  text-align: center;
+}
+
+.delivery-header-secondary td,
+.delivery-header-secondary th {
+  color: #2d3748 !important;
+}
+
+/* Інверсія кольорів при наведенні курсора (:hover) */
+.delivery-header-primary:hover {
+  background-color: #f9e784 !important;
+  cursor: pointer;
+}
+
+.delivery-header-primary:hover th {
+  color: #2d3748 !important;
+}
+
+.delivery-header-secondary:hover {
+  background-color: #448f8f !important;
+  cursor: pointer;
+}
+
+.delivery-header-secondary:hover td,
+.delivery-header-secondary:hover th {
+  color: #ffffff !important;
+}
+
+/* М'яка підсвітка звичайних рядків при наведенні */
+.delivery-schedule-table
+  tbody
+  tr:not(.delivery-header-primary):not(.delivery-header-secondary):hover {
+  background-color: rgba(68, 143, 143, 0.08);
+}

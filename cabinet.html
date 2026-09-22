@@ -152,12 +152,87 @@
           <!-- Ліва колонка з аватаром -->
           <div class="col-lg-4">
             <div class="profile-card text-center mb-4 mb-lg-0">
-              <i
-                class="bi bi-person-circle text-secondary mb-3"
-                style="font-size: 5rem"
-              ></i>
-              <h4 class="mb-1" id="profile-name"></h4>
-              <p class="text-muted" id="profile-email"></p>
+              <div
+                id="avatar-container"
+                class="mb-3 d-flex justify-content-center align-items-center"
+                style="min-height: 160px"
+              >
+                <img
+                  id="profile-avatar-img"
+                  src="images/userphoto.png"
+                  alt="Фото профілю"
+                  class="profile-avatar shadow-sm"
+                  style="
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    border: 4px solid var(--primary-color, #d32f2f);
+                    object-fit: cover;
+                    transition:
+                      width 0.3s ease,
+                      height 0.3s ease;
+                  "
+                />
+              </div>
+
+              <!-- Панель керування аватаром -->
+              <div
+                class="avatar-controls d-flex flex-wrap justify-content-center gap-2 mb-3"
+              >
+                <button
+                  type="button"
+                  id="btn-add-avatar"
+                  class="btn btn-sm btn-outline-success"
+                  title="Додати фото профілю"
+                >
+                  <i class="bi bi-plus-circle me-1"></i>Додати
+                </button>
+                <button
+                  type="button"
+                  id="btn-zoom-in-avatar"
+                  class="btn btn-sm btn-outline-primary"
+                  title="Збільшити фото"
+                >
+                  <i class="bi bi-zoom-in me-1"></i>Збільшити
+                </button>
+                <button
+                  type="button"
+                  id="btn-zoom-out-avatar"
+                  class="btn btn-sm btn-outline-secondary"
+                  title="Зменшити фото"
+                >
+                  <i class="bi bi-zoom-out me-1"></i>Зменшити
+                </button>
+                <button
+                  type="button"
+                  id="btn-delete-avatar"
+                  class="btn btn-sm btn-outline-danger"
+                  title="Видалити фото"
+                >
+                  <i class="bi bi-trash me-1"></i>Видалити
+                </button>
+              </div>
+
+              <h4
+                class="mb-1 py-1 px-2 rounded"
+                id="profile-name"
+                style="
+                  cursor: pointer;
+                  user-select: none;
+                  transition: all 0.3s ease;
+                "
+                title="Клікніть для зміни стилів (getElementById)"
+              ></h4>
+              <p
+                class="text-muted py-1 px-2 rounded"
+                id="profile-email"
+                style="
+                  cursor: pointer;
+                  user-select: none;
+                  transition: all 0.3s ease;
+                "
+                title="Клікніть для зміни стилів (querySelector)"
+              ></p>
             </div>
           </div>
 
@@ -237,7 +312,8 @@
 
                     <button
                       type="button"
-                      class="btn custom-btn mt-3"
+                      class="btn btn-danger custom-btn mt-3"
+                      id="edit-profile-btn"
                       data-bs-toggle="modal"
                       data-bs-target="#editProfileModal"
                     >
@@ -326,7 +402,7 @@
             <button class="btn btn-secondary" data-bs-dismiss="modal">
               Скасувати
             </button>
-            <button class="btn custom-btn" id="save-profile-btn">
+            <button class="btn btn-danger custom-btn" id="save-profile-btn">
               Зберегти
             </button>
           </div>
@@ -450,6 +526,7 @@
     <script src="js/order-modal.js"></script>
     <script src="js/nav-auth.js"></script>
     <script src="js/cabinet.js"></script>
+    <script src="js/avatar-controls.js"></script>
     <script src="js/custom.js"></script>
   </body>
 </html>

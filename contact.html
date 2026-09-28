@@ -34,6 +34,7 @@
 
     <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet" />
     <link href="css/logo.css" rel="stylesheet" />
+    <link href="css/table-reservation.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -192,6 +193,59 @@
         </div>
       </section>
 
+      <!-- Інтерактивна схема залу ресторану 6x6 -->
+      <section class="table-reservation-section section-padding border-top border-bottom">
+        <div class="container">
+          <div class="row text-center mb-4">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="mb-3">Схема залу та бронювання столиків</h2>
+              <p class="text-muted">
+                Інтерактивна схема розміщення столиків BellaPizza (6&times;6, 36 місць).
+                Наведіть курсор для швидкого огляду (випадковий колір), клікніть для вибору кольору з палітри або двічі клікніть для бронювання всього ряду.
+              </p>
+            </div>
+          </div>
+
+          <!-- Панель керування та палітра кольорів -->
+          <div class="row mb-4">
+            <div class="col-lg-8 mx-auto">
+              <div class="hall-controls-box d-flex flex-wrap justify-content-center align-items-center gap-3 p-3 rounded shadow-sm">
+                <div class="d-flex align-items-center gap-2">
+                  <label for="hall-color-picker" class="fw-semibold mb-0">Палітра статусу:</label>
+                  <input type="color" id="hall-color-picker" class="hall-color-input form-control form-control-color" value="#dc3545" title="Оберіть колір">
+                </div>
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-sm btn-outline-danger color-preset" data-color="#dc3545">Зайнято</button>
+                  <button type="button" class="btn btn-sm btn-outline-success color-preset" data-color="#198754">Вільно</button>
+                  <button type="button" class="btn btn-sm btn-outline-warning color-preset" data-color="#ffc107">VIP</button>
+                </div>
+                <button type="button" id="reset-hall-btn" class="btn btn-sm btn-secondary ms-md-auto">
+                  <i class="bi bi-arrow-counterclockwise me-1"></i>Скинути зал
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Інтерактивна таблиця 6х6 -->
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="table-responsive d-flex justify-content-center">
+                <table class="hall-table shadow-sm" id="hall-grid-table">
+                  <tbody>
+                    <!-- Генерується динамічно через contact-interactive.js -->
+                  </tbody>
+                </table>
+              </div>
+              <div class="text-center mt-3 text-muted small">
+                <span class="me-3"><i class="bi bi-cursor me-1"></i><strong>Наведення:</strong> динамічний колір</span>
+                <span class="me-3"><i class="bi bi-hand-index-thumb me-1"></i><strong>1 клік:</strong> колір з палітри</span>
+                <span><i class="bi bi-hand-index-thumb-fill me-1"></i><strong>2 кліки:</strong> бронювання ряду</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- FAQ & Careers -->
       <section class="section-padding">
         <div class="container">
@@ -314,20 +368,14 @@
               <form
                 class="custom-form contact-form"
                 action="#"
-                onsubmit="
-                  event.preventDefault();
-                  showToast(
-                    'Ваше повідомлення надіслано! Ми зв\'яжемося з вами найближчим часом.',
-                    'success',
-                  );
-                  this.reset();
-                "
+                id="contact-form"
+                novalidate
                 role="form"
               >
                 <div class="row">
                   <div class="col-lg-6 col-12 mb-3">
                     <label for="contact-name" class="form-label"
-                      >Ваше ім'я</label
+                      >Ваше ім'я та прізвище</label
                     >
                     <input
                       type="text"
@@ -337,6 +385,7 @@
                       placeholder="Іван Іванов"
                       required
                     />
+                    <div class="invalid-feedback"></div>
                   </div>
 
                   <div class="col-lg-6 col-12 mb-3">
@@ -348,8 +397,10 @@
                       name="contact-phone"
                       id="contact-phone"
                       class="form-control"
-                      placeholder="+380..."
+                      placeholder="+380XXXXXXXXX"
+                      required
                     />
+                    <div class="invalid-feedback"></div>
                   </div>
 
                   <div class="col-12 mb-3">
@@ -362,6 +413,7 @@
                       placeholder="ivan@example.com"
                       required
                     />
+                    <div class="invalid-feedback"></div>
                   </div>
 
                   <div class="col-12 mb-4">
@@ -373,9 +425,10 @@
                       rows="4"
                       id="contact-message"
                       name="contact-message"
-                      placeholder="Як ми можемо допомогти?"
+                      placeholder="Як ми можемо допомогти? (мін. 10 символів)"
                       required
                     ></textarea>
+                    <div class="invalid-feedback"></div>
                   </div>
 
                   <div class="col-12">
@@ -675,6 +728,63 @@
       </div>
     </div>
 
+    <!-- Модальне вікно успішної валідації та відправки форми -->
+    <div
+      class="modal fade"
+      id="contactSuccessModal"
+      tabindex="-1"
+      aria-labelledby="contactSuccessModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title text-white mb-0" id="contactSuccessModalLabel">
+              <i class="bi bi-check-circle-fill me-2"></i>Дані успішно перевірено
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Закрити"
+            ></button>
+          </div>
+          <div class="modal-body p-4">
+            <p class="text-muted mb-3">
+              Усі поля форми успішно пройшли перевірку регулярними виразами (RegEx). Нижче наведено передану інформацію:
+            </p>
+            <ul class="list-group list-group-flush mb-3">
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                <strong>ПІБ:</strong>
+                <span id="modal-res-name" class="text-dark fw-semibold"></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                <strong>Телефон:</strong>
+                <span id="modal-res-phone" class="text-dark fw-semibold"></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                <strong>Email:</strong>
+                <span id="modal-res-email" class="text-dark fw-semibold"></span>
+              </li>
+              <li class="list-group-item px-0">
+                <strong>Повідомлення:</strong>
+                <p id="modal-res-message" class="text-muted small mt-1 mb-0"></p>
+              </li>
+            </ul>
+            <div class="alert alert-success d-flex align-items-center mb-0" role="alert">
+              <i class="bi bi-info-circle-fill me-2 fs-5"></i>
+              <div>Повідомлення надіслано адміністратору BellaPizza. Ми зв'яжемося з вами!</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Закрити
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="js/config.js"></script>
     <script src="js/api.js"></script>
 
@@ -686,5 +796,6 @@
     <script src="js/order-modal.js"></script>
 
     <script src="js/nav-auth.js"></script>
+    <script src="js/contact-interactive.js"></script>
   </body>
 </html>

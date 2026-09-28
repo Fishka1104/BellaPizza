@@ -1,0 +1,70 @@
+.table-reservation-section {
+  background: #fdfdfd;
+}
+
+.hall-controls-box {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+}
+
+.hall-color-input {
+  width: 50px;
+  height: 38px;
+  padding: 3px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hall-table {
+  width: auto;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+.hall-table td {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  min-height: 58px;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #212529;
+  background-color: #f1f3f5;
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.25s ease,
+    color 0.2s ease;
+}
+
+.hall-table td:hover {
+  transform: scale(1.12);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  position: relative;
+}
+
+.hall-table td.colored {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 576px) {
+  .hall-table {
+    border-spacing: 5px;
+  }
+  .hall-table td {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+}

@@ -13,6 +13,7 @@
     <link href="css/bootstrap-icons.css" rel="stylesheet" />
     <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet" />
     <link href="css/logo.css" rel="stylesheet" />
+    <link href="css/react-components.css" rel="stylesheet" />
 
     <style>
       .user-cabinet {
@@ -31,7 +32,7 @@
         width: 150px;
         height: 150px;
         border-radius: 50%;
-        border: 4px solid var(--primary-color);
+        border: 4px solid var(--primary-color, #d32f2f);
         object-fit: cover;
       }
       .nav-tabs .nav-link {
@@ -151,89 +152,7 @@
         <div class="row">
           <!-- Ліва колонка з аватаром -->
           <div class="col-lg-4">
-            <div class="profile-card text-center mb-4 mb-lg-0">
-              <div
-                id="avatar-container"
-                class="mb-3 d-flex justify-content-center align-items-center"
-                style="min-height: 160px"
-              >
-                <img
-                  id="profile-avatar-img"
-                  src="images/userphoto.png"
-                  alt="Фото профілю"
-                  class="profile-avatar shadow-sm"
-                  style="
-                    width: 150px;
-                    height: 150px;
-                    border-radius: 50%;
-                    border: 4px solid var(--primary-color, #d32f2f);
-                    object-fit: cover;
-                    transition:
-                      width 0.3s ease,
-                      height 0.3s ease;
-                  "
-                />
-              </div>
-
-              <!-- Панель керування аватаром -->
-              <div
-                class="avatar-controls d-flex flex-wrap justify-content-center gap-2 mb-3"
-              >
-                <button
-                  type="button"
-                  id="btn-add-avatar"
-                  class="btn btn-sm btn-outline-success"
-                  title="Додати фото профілю"
-                >
-                  <i class="bi bi-plus-circle me-1"></i>Додати
-                </button>
-                <button
-                  type="button"
-                  id="btn-zoom-in-avatar"
-                  class="btn btn-sm btn-outline-primary"
-                  title="Збільшити фото"
-                >
-                  <i class="bi bi-zoom-in me-1"></i>Збільшити
-                </button>
-                <button
-                  type="button"
-                  id="btn-zoom-out-avatar"
-                  class="btn btn-sm btn-outline-secondary"
-                  title="Зменшити фото"
-                >
-                  <i class="bi bi-zoom-out me-1"></i>Зменшити
-                </button>
-                <button
-                  type="button"
-                  id="btn-delete-avatar"
-                  class="btn btn-sm btn-outline-danger"
-                  title="Видалити фото"
-                >
-                  <i class="bi bi-trash me-1"></i>Видалити
-                </button>
-              </div>
-
-              <h4
-                class="mb-1 py-1 px-2 rounded"
-                id="profile-name"
-                style="
-                  cursor: pointer;
-                  user-select: none;
-                  transition: all 0.3s ease;
-                "
-                title="Клікніть для зміни стилів (getElementById)"
-              ></h4>
-              <p
-                class="text-muted py-1 px-2 rounded"
-                id="profile-email"
-                style="
-                  cursor: pointer;
-                  user-select: none;
-                  transition: all 0.3s ease;
-                "
-                title="Клікніть для зміни стилів (querySelector)"
-              ></p>
-            </div>
+            <div id="profile-react-root"></div>
           </div>
 
           <!-- Права колонка з вкладками -->
@@ -526,7 +445,250 @@
     <script src="js/order-modal.js"></script>
     <script src="js/nav-auth.js"></script>
     <script src="js/cabinet.js"></script>
-    <script src="js/avatar-controls.js"></script>
     <script src="js/custom.js"></script>
+
+    <!-- React 18 & Babel Standalone -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      // 1. Функціональний компонент Header
+      function Header(props) {
+        return (
+          <header className="profile-header text-center mb-3">
+            <h3 className="h4 mb-1 text-dark fw-bold">
+              {props.title || "Особистий профіль"}
+            </h3>
+            <span className="badge bg-danger px-3 py-1 rounded-pill shadow-sm">
+            </span>
+          </header>
+        );
+      }
+
+      // 2. Функціональний компонент Image (керування фото: збільшити, зменшити, додати, видалити)
+      function Image(props) {
+        const [size, setSize] = React.useState(150);
+        const [isDeleted, setIsDeleted] = React.useState(false);
+
+        const handleZoomIn = () => {
+          if (size < 240) setSize(prev => prev + 20);
+        };
+
+        const handleZoomOut = () => {
+          if (size > 80) setSize(prev => prev - 20);
+        };
+
+        const handleAdd = () => {
+          setIsDeleted(false);
+          setSize(150);
+        };
+
+        const handleDelete = () => {
+          setIsDeleted(true);
+        };
+
+        return (
+          <div className="profile-image-container text-center">
+            <div
+              id="avatar-container"
+              className="mb-3 d-flex justify-content-center align-items-center"
+              style={{ minHeight: "160px" }}
+            >
+              {!isDeleted ? (
+                <img
+                  id="profile-avatar-img"
+                  src={props.src || "images/userphoto.png"}
+                  alt="Фото профілю"
+                  className="profile-avatar shadow-sm"
+                  style={{
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    borderRadius: "50%",
+                    border: "4px solid #d32f2f",
+                    objectFit: "cover",
+                    transition: "width 0.3s ease, height 0.3s ease"
+                  }}
+                />
+              ) : (
+                <div
+                  className="d-flex flex-column align-items-center justify-content-center text-muted border border-2 border-dashed rounded-circle bg-light shadow-sm"
+                  style={{ width: "140px", height: "140px", margin: "0 auto" }}
+                >
+                  <i className="bi bi-person-x fs-1 text-secondary mb-1"></i>
+                  <span style={{ fontSize: "0.75rem" }}>Фото видалено</span>
+                </div>
+              )}
+            </div>
+
+            <div className="avatar-controls d-flex flex-wrap justify-content-center gap-2 mb-2">
+              <button
+                type="button"
+                id="btn-add-avatar"
+                className="btn btn-sm btn-outline-success"
+                onClick={handleAdd}
+                title="Додати фото профілю"
+              >
+                <i className="bi bi-plus-circle me-1"></i>Додати
+              </button>
+              <button
+                type="button"
+                id="btn-zoom-in-avatar"
+                className="btn btn-sm btn-outline-primary"
+                onClick={handleZoomIn}
+                disabled={isDeleted || size >= 240}
+                title="Збільшити фото"
+              >
+                <i className="bi bi-zoom-in me-1"></i>Збільшити
+              </button>
+              <button
+                type="button"
+                id="btn-zoom-out-avatar"
+                className="btn btn-sm btn-outline-secondary"
+                onClick={handleZoomOut}
+                disabled={isDeleted || size <= 80}
+                title="Зменшити фото"
+              >
+                <i className="bi bi-zoom-out me-1"></i>Зменшити
+              </button>
+              <button
+                type="button"
+                id="btn-delete-avatar"
+                className="btn btn-sm btn-outline-danger"
+                onClick={handleDelete}
+                disabled={isDeleted}
+                title="Видалити фото"
+              >
+                <i className="bi bi-trash me-1"></i>Видалити
+              </button>
+            </div>
+            <div className="text-muted" style={{ fontSize: "0.75rem" }}>
+              Розмір: <strong>{size}×{size}px</strong>
+            </div>
+          </div>
+        );
+      }
+
+      // 3. Класовий компонент Content (зміна кольорів при кліку через this.state)
+      class Content extends React.Component {
+        constructor(props) {
+          super(props);
+          this.nameStyles = [
+            { bg: "transparent", color: "#212529" },
+            { bg: "#d32f2f", color: "#ffffff" },
+            { bg: "#198754", color: "#ffffff" },
+            { bg: "#0d6efd", color: "#ffffff" },
+            { bg: "#6f42c1", color: "#ffffff" }
+          ];
+
+          this.emailStyles = [
+            { bg: "transparent", color: "#6c757d" },
+            { bg: "#ffc107", color: "#212529" },
+            { bg: "#20c997", color: "#ffffff" },
+            { bg: "#fd7e14", color: "#ffffff" },
+            { bg: "#0dcaf0", color: "#212529" }
+          ];
+
+          this.state = {
+            nameIndex: 0,
+            emailIndex: 0,
+            name: props.name || localStorage.getItem("userName") || "Бондаренко Ілля Олександрович",
+            email: props.email || localStorage.getItem("userEmail") || "student@kpi.ua"
+          };
+
+          this.handleNameClick = this.handleNameClick.bind(this);
+          this.handleEmailClick = this.handleEmailClick.bind(this);
+        }
+
+        handleNameClick() {
+          this.setState((prev) => ({
+            nameIndex: (prev.nameIndex + 1) % this.nameStyles.length
+          }));
+        }
+
+        handleEmailClick() {
+          this.setState((prev) => ({
+            emailIndex: (prev.emailIndex + 1) % this.emailStyles.length
+          }));
+        }
+
+        render() {
+          const nameStyle = this.nameStyles[this.state.nameIndex];
+          const emailStyle = this.emailStyles[this.state.emailIndex];
+
+          return (
+            <div className="profile-content text-center mt-3">
+              <h4
+                id="profile-name"
+                onClick={this.handleNameClick}
+                style={{
+                  backgroundColor: nameStyle.bg,
+                  color: nameStyle.color,
+                  cursor: "pointer",
+                  userSelect: "none",
+                  transition: "all 0.3s ease",
+                  padding: "8px 14px",
+                  borderRadius: "10px",
+                  display: "inline-block",
+                  maxWidth: "100%"
+                }}
+                title="Клікніть для зміни кольору (React Class Component)"
+              >
+                {this.state.name}
+              </h4>
+
+              <div>
+                <p
+                  id="profile-email"
+                  onClick={this.handleEmailClick}
+                  style={{
+                    backgroundColor: emailStyle.bg,
+                    color: emailStyle.color,
+                    cursor: "pointer",
+                    userSelect: "none",
+                    transition: "all 0.3s ease",
+                    padding: "5px 12px",
+                    borderRadius: "8px",
+                    display: "inline-block",
+                    marginBottom: "0.5rem"
+                  }}
+                  title="Клікніть для зміни кольору (React Class Component)"
+                >
+                  {this.state.email}
+                </p>
+              </div>
+
+              <div className="text-muted small mt-2">
+                <i className="bi bi-cursor-fill me-1 text-danger"></i>
+                <span style={{ fontSize: "0.78rem" }}>
+                  Клікніть для зміни кольорів
+                </span>
+              </div>
+            </div>
+          );
+        }
+      }
+
+      // Головний компонент ProfileApp
+      function ProfileApp() {
+        const name = localStorage.getItem("userName") || "Бондаренко Ілля Олександрович";
+        const email = localStorage.getItem("userEmail") || "student@kpi.ua";
+
+        return (
+          <div className="profile-card text-center mb-4 mb-lg-0 shadow-sm">
+            <Header title="Особистий профіль" />
+            <Image src="images/userphoto.png" />
+            <Content name={name} email={email} />
+          </div>
+        );
+      }
+
+      // Монтування React-додатка
+      const rootElement = document.getElementById("profile-react-root");
+      if (rootElement) {
+        const root = ReactDOM.createRoot(rootElement);
+        root.render(<ProfileApp />);
+      }
+    </script>
   </body>
 </html>
